@@ -22,19 +22,19 @@ def cycle(L):
     L=L+[x]
     return L
 
-def transform(color1, color2, skip=1):
+def transform(color1, color2, skipR=1, skipG=1, skipB=1):
     # This function transforms color1 into color2
     L=[] 
-    if (color1[0]<color2[0]):i=list(range(color1[0], color2[0]+1, skip))
-    else:i=list(range(color2[0], color1[0]+1, skip))[::-1]
+    if (color1[0]<color2[0]):i=list(range(color1[0], color2[0]+1, skipR))
+    else:i=list(range(color2[0], color1[0]+1, skipR))[::-1]
     if i==[]:i=[color1[0]]
   
-    if (color1[1]<color2[1]):j=list(range(color1[1], color2[1]+1))
-    else:j=list(range(color2[1], color1[1]+1, skip))[::-1]
+    if (color1[1]<color2[1]):j=list(range(color1[1], color2[1]+1, skipG))
+    else:j=list(range(color2[1], color1[1]+1, skipG))[::-1]
     if j==[]:j=[color1[1]]
 
-    if (color1[2]<color2[2]):k=list(range(color1[2], color2[2]+1, skip))
-    else:k=list(range(color2[2], color1[2]+1, skip))[::-1]
+    if (color1[2]<color2[2]):k=list(range(color1[2], color2[2]+1, skipB))
+    else:k=list(range(color2[2], color1[2]+1, skipB))[::-1]
     if k==[]:k=[color1[2]]
 
     x=max(len(i), len(j), len(k))
@@ -47,6 +47,7 @@ def transform(color1, color2, skip=1):
         L+=[l]
     return L
 
+print(transform([0,0,0], [10,10,10]))
 
 def VIBGYOR():
     V=(128,0,128)
